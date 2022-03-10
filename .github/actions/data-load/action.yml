@@ -1,0 +1,21 @@
+name: Load OSS projects
+
+outputs:
+    matrix:
+        description: "OSS Projects"
+        value: ${{ steps.matrix.outputs.matrix }}
+
+runs:
+    using: "composite"
+    steps:
+        - id: matrix
+          name: Load projects
+          run: |
+              matrix=`cat ./.github/projects.json`
+              # the following lines are only required for multi line json
+              matrix="${matrix//'%'/'%25'}"
+              matrix="${matrix//$'\n'/'%0A'}"
+              matrix="${matrix//$'\r'/'%0D'}"
+              # end of optional handling for multi line json
+              echo "::set-output name=matrix::$matrix"
+          shell: bash
