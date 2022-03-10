@@ -1,8 +1,9 @@
 name: Automated run
 
 on:
-    push:
-    pull_request:
+    schedule:
+        # Every Monday at 7.00
+        - cron: '0 7 * * 1'
 
 jobs:
   matrix:

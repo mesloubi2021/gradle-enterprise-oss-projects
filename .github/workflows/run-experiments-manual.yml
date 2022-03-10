@@ -36,7 +36,7 @@ jobs:
         - name: Parse data
           id: data-parse
           run: |
-            echo ${{ steps.data-load.outputs.matrix }} > tmp.json
+              cat $(echo ${{ steps.data-load.outputs.matrix }}) > tmp.json
             matrix=`jq '.include[] | select(.project == "androidx")' tmp.json`
             echo $matrix
             echo "::set-output name=matrix::$matrix"
