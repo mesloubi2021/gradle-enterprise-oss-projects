@@ -37,6 +37,7 @@ jobs:
         run: |
           mkdir ~/git-hooks
           echo -e 'echo "\nallprojects { tasks.withType(Test).configureEach { ignoreFailures = true } }" >> build.gradle\n' >> ~/git-hooks/post-checkout
+          echo -e './tools/github/setup.sh'
           chmod +x ~/git-hooks/post-checkout
           git config --global core.hooksPath ~/git-hooks
       - name: Run experiment 1
