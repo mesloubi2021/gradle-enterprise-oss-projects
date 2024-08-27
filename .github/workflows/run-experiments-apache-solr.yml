@@ -8,8 +8,8 @@ on:
 
 env:
   GRADLE_ENTERPRISE_URL: "https://ge.solutions-team.gradle.com"
-  GIT_REPO: "https://github.com/apache/solr"
-  TASKS: "check integrationTests -Ptests.seed=3466BEBDD5AA01A0 -Pvalidation.git.failOnModified=false -Ptests.haltonfailure=false -Ptests.neverUpToDate=false --info"
+  GIT_REPO: "https://github.com/tylerbertrand/solr"
+  TASKS: "check integrationTests -Ptests.seed=3466BEBDD5AA01A0 -Pvalidation.git.failOnModified=false -Ptests.haltonfailure=false -Ptests.neverUpToDate=false"
 
 jobs:
   Experiment:
@@ -31,7 +31,6 @@ jobs:
         run: |
           mkdir ~/git-hooks
           echo -e 'echo "\nallprojects { pluginManager.withPlugin(\"com.diffplug.spotless\") { tasks.withType(com.diffplug.gradle.spotless.SpotlessTaskImpl).configureEach { outputs.doNotCacheIf(\"SpotlessTaskImpl is not cacheable if custom formatter steps are used\") { true } } } }" >> build.gradle\n' >> ~/git-hooks/post-checkout
-          echo -e 'sed -i '\''s_rootNodeDir = "$rootDir/.gradle/node"_rootNodeDir = layout.projectDirectory.dir(".gradle/node").getAsFile().path_'\'' gradle/node.gradle' >> ~/git-hooks/post-checkout
           chmod +x ~/git-hooks/post-checkout
           cat ~/git-hooks/post-checkout
           git config --global core.hooksPath ~/git-hooks
@@ -44,6 +43,7 @@ jobs:
         env:
           GRADLE_ENTERPRISE_ACCESS_KEY: "${{ secrets.DV_SOLUTIONS_ACCESS_KEY }}"
         with:
+          gitBranch: tylerbertrand/experiment-fixes
           gitRepo: ${{ env.GIT_REPO }}
           tasks: ${{ env.TASKS }}
           gradleEnterpriseUrl: ${{ env.GRADLE_ENTERPRISE_URL }}
@@ -54,6 +54,7 @@ jobs:
         env:
           GRADLE_ENTERPRISE_ACCESS_KEY: "${{ secrets.DV_SOLUTIONS_ACCESS_KEY }}"
         with:
+          gitBranch: tylerbertrand/experiment-fixes
           gitRepo: ${{ env.GIT_REPO }}
           tasks: ${{ env.TASKS }}
           gradleEnterpriseUrl: ${{ env.GRADLE_ENTERPRISE_URL }}
@@ -65,6 +66,7 @@ jobs:
         env:
           GRADLE_ENTERPRISE_ACCESS_KEY: "${{ secrets.DV_SOLUTIONS_ACCESS_KEY }}"
         with:
+          gitBranch: tylerbertrand/experiment-fixes
           gitRepo: ${{ env.GIT_REPO }}
           tasks: ${{ env.TASKS }}
           gradleEnterpriseUrl: ${{ env.GRADLE_ENTERPRISE_URL }}
