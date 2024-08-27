@@ -43,7 +43,7 @@ jobs:
         env:
           GRADLE_ENTERPRISE_ACCESS_KEY: "${{ secrets.DV_SOLUTIONS_ACCESS_KEY }}"
         with:
-          gitBranch: tylerbertrand/experiment-fixes
+          gitBranch: tylerbertrand/experiment-fixes-set-rootNodeDir
           gitRepo: ${{ env.GIT_REPO }}
           tasks: ${{ env.TASKS }}
           gradleEnterpriseUrl: ${{ env.GRADLE_ENTERPRISE_URL }}
@@ -54,7 +54,7 @@ jobs:
         env:
           GRADLE_ENTERPRISE_ACCESS_KEY: "${{ secrets.DV_SOLUTIONS_ACCESS_KEY }}"
         with:
-          gitBranch: tylerbertrand/experiment-fixes
+          gitBranch: tylerbertrand/experiment-fixes-set-rootNodeDir
           gitRepo: ${{ env.GIT_REPO }}
           tasks: ${{ env.TASKS }}
           gradleEnterpriseUrl: ${{ env.GRADLE_ENTERPRISE_URL }}
@@ -66,7 +66,7 @@ jobs:
         env:
           GRADLE_ENTERPRISE_ACCESS_KEY: "${{ secrets.DV_SOLUTIONS_ACCESS_KEY }}"
         with:
-          gitBranch: tylerbertrand/experiment-fixes
+          gitBranch: tylerbertrand/experiment-fixes-set-rootNodeDir
           gitRepo: ${{ env.GIT_REPO }}
           tasks: ${{ env.TASKS }}
           gradleEnterpriseUrl: ${{ env.GRADLE_ENTERPRISE_URL }}
