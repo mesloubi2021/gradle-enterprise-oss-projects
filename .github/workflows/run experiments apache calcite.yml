@@ -39,7 +39,7 @@ jobs:
         with:
           gitRepo: ${{ env.GIT REPO }}
           tasks: ${{ env.TASKS }}
-          gradleEnterpriseUrl: ${{ env.GRADLE ENTERPRISE URL }}
+          gradle Enterprise Url: ${{ env.GRADLE ENTERPRISE URL }}
         if: matrix.experimentId = 1
         name: Run experiment 2
         uses: gradle/gradle enterprise build validation scripts/github/actions/gradle/experiment 2@actions stable
@@ -48,8 +48,8 @@ jobs:
         with:
           gitRepo: ${{ env.GIT REPO }}
           tasks: ${{ env.TASKS }}
-          gradleEnterpriseUrl: ${{ env.GRADLE ENTERPRISE URL }}
-          failIfNotFullyCacheable: true
+          gradle Enterprise Url: ${{ env.GRADLE ENTERPRISE URL }}
+          fail If Not Fully Cacheable: true
         if: matrix.experimentId = 2
         name: Run experiment 3
         uses: gradle/gradle enterprise build validation scripts/github/actions/gradle/experiment 3@actions stable
