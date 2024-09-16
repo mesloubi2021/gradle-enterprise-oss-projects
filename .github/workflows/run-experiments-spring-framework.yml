@@ -8,6 +8,7 @@ on:
 
 env:
   GRADLE_ENTERPRISE_URL: "https://ge.solutions-team.gradle.com"
+  GIT_COMMIT_ID: "ac11b03cd3c37121232d0b556fe642103179cdc9"
   GIT_REPO: "https://github.com/spring-projects/spring-framework"
   TASKS: "build"
 
@@ -41,6 +42,7 @@ jobs:
         env:
           GRADLE_ENTERPRISE_ACCESS_KEY: "${{ secrets.DV_SOLUTIONS_ACCESS_KEY }}"
         with:
+          gitCommitId: ${{ env.GIT_COMMIT_ID }}
           gitRepo: ${{ env.GIT_REPO }}
           tasks: ${{ env.TASKS }}
           gradleEnterpriseUrl: ${{ env.GRADLE_ENTERPRISE_URL }}
@@ -50,6 +52,7 @@ jobs:
         env:
           GRADLE_ENTERPRISE_ACCESS_KEY: "${{ secrets.DV_SOLUTIONS_ACCESS_KEY }}"
         with:
+          gitCommitId: ${{ env.GIT_COMMIT_ID }}
           gitRepo: ${{ env.GIT_REPO }}
           tasks: ${{ env.TASKS }}
           gradleEnterpriseUrl: ${{ env.GRADLE_ENTERPRISE_URL }}
@@ -60,6 +63,7 @@ jobs:
         env:
           GRADLE_ENTERPRISE_ACCESS_KEY: "${{ secrets.DV_SOLUTIONS_ACCESS_KEY }}"
         with:
+          gitCommitId: ${{ env.GIT_COMMIT_ID }}
           gitRepo: ${{ env.GIT_REPO }}
           tasks: ${{ env.TASKS }}
           gradleEnterpriseUrl: ${{ env.GRADLE_ENTERPRISE_URL }}
