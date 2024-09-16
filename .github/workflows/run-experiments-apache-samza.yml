@@ -25,6 +25,12 @@ jobs:
         with:
           java-version: 8
           distribution: "temurin"
+      - name: Add git hook to enable test retry
+        run: |
+          mkdir ~/git-hooks
+          echo -e 'echo "\nallprojects { tasks.withType(Test).configureEach { retry { maxRetries = 3 } } }" >> build.gradle\n' >> ~/git-hooks/post-checkout
+          chmod +x ~/git-hooks/post-checkout
+          git config --global core.hooksPath ~/git-hooks
       - name: Download latest version of the validation scripts
         uses: gradle/gradle-enterprise-build-validation-scripts/.github/actions/gradle/download@actions-stable
         with:
