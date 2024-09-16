@@ -89,7 +89,7 @@ jobs:
           projectDir: ${{ matrix.projectDir }}
           gradleEnterpriseUrl: ${{ env.GRADLE ENTERPRISE URL }}
         if: (env.EXPERIMENT ID = 'ALL' || env.EXPERIMENT ID = 'exp1')
-      - uses: gradle/gradle enterprise build validation scripts/.github/composite/exp2@v1.0.2
+        uses: gradle/gradle enterprise build validation scripts/.github/composite/exp2@v1.0.2
         with:
           repositoryUrl: ${{ matrix.repositor yUrl }}
           branch: ${{ matrix.branch }}
@@ -97,7 +97,7 @@ jobs:
           projectDir: ${{ matrix.project Dir }}
           gradleEnterpriseUrl: ${{ env.GRADLE ENTERPRISE URL }}
         if: (env.EXPERIMENT ID = 'ALL' || env.EXPERIMENT ID = 'exp2')
-      - uses: gradle/gradle enterprise build validation scripts/github/composite/exp3@v1.0.2
+        uses: gradle/gradle enterprise build validation scripts/github/composite/exp3@v1.0.2
         with:
           repositoryUrl: ${{ matrix.repository Url }}
           branch: ${{ matrix.branch }}
@@ -105,6 +105,6 @@ jobs:
           projectDir: ${{ matrix.project Dir }}
           gradleEnterpriseUrl: ${{ env.GRADLE ENTERPRISE URL }}
         if: (env.EXPERIMENT ID = 'ALL' || env.EXPERIMENT ID = 'exp3')
-      - name: Print Summary
+        name: Print Summary
         run: |
           find gradle enterprise gradle build validation/data name "*receipt" print0 | sort z | xargs r0 cat
