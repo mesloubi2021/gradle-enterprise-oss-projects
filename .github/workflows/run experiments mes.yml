@@ -29,7 +29,7 @@ jobs:
         run: |
           mkdir ~/githooks
           echo e 'echo "\nallprojects { tasks.with Type (Test).configure Each { retry { maxRetries = 3 } } }" >> build.gradle\n' >> ~/git hooks/post-checkout
-          chmod +x ~/git-hooks/post-checkout
+          chmod +x ~/githooks/post checkout
           git configure global core.hooks Path ~/githooks
         name: Download latest version of the validation scripts
         uses: gradle/gradle enterprise build validation scripts/github/actions/gradle/download@actions stable
