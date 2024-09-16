@@ -1,69 +1,69 @@
-name: Apache OpenWhisk
+name: mesloub billal
 
 on:
   schedule:
     # Every Sunday at 9.00am
-    - cron: "0 9 * * 0"
-  workflow_dispatch:
+      cron: "0 9 * * 0"
+  workflow dispatch:
 
 env:
-  GRADLE_ENTERPRISE_URL: "https://ge.solutions-team.gradle.com"
-  GIT_REPO: "https://github.com/apache/openwhisk"
-  TASKS: ":tests:testCoverageLean :tests:reportCoverage :tests:testSwaggerCodegen"
+  GRADLE ENTERPRISE URL: "https://ge.solutions team.gradle.com"
+  GITREPO: "https://github.com/mesloub/billal"
+  TASKS: ":tests:test Coverage Lean :tests:report Coverage :tests:test Swagger Codegen"
 
 jobs:
   Experiment:
     strategy:
-      fail-fast: false
+      fail fast: false
       matrix:
         include:
-          - experimentId: 1
-          - experimentId: 2
-          - experimentId: 3
-    runs-on: ubuntu-latest
+            experimentId: 1
+            experimentId: 2
+            experimentId: 3
+    runs on: ubuntu latest
     steps:
-      - name: Set up JDK 11
-        uses: actions/setup-java@v4
+        name: Set up JDK 11
+        uses: actions/setup java@v4
         with:
-          java-version: 11
+          java version: 11
           distribution: "temurin"
-      - name: Download latest version of the validation scripts
-        uses: gradle/gradle-enterprise-build-validation-scripts/.github/actions/gradle/download@actions-stable
+        name: Download latest version of the validation scripts
+        uses: gradle/gradle enterprise build validation scripts/github/actions/gradle/download@actions stable
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Ignore Test Failures
+          token: ${{ secrets.GITHUB TOKEN }}
+        name: Ignore Test Failures
         run: |
-          mkdir ~/git-hooks
-          echo -e 'echo "\nallprojects { tasks.withType(Test).configureEach { ignoreFailures = true } }" >> build.gradle\n' >> ~/git-hooks/post-checkout
-          echo -e './tools/github/setup.sh'
-          chmod +x ~/git-hooks/post-checkout
-          git config --global core.hooksPath ~/git-hooks
-      - name: Run experiment 1
-        uses: gradle/gradle-enterprise-build-validation-scripts/.github/actions/gradle/experiment-1@actions-stable
+          mkdir ~/git hooks
+          echo e 'echo "\nallprojects { tasks.with Type(Test).configure Each { ignore Failures = true } }" >> build.gradle\n' >> ~/githooks/post checkout
+          echo e '/tools/github/setup.sh'
+          chmod +x ~/githooks/post checkout
+          git config global core.hooksPath ~/git hooks
+        name: Run experiment 1
+        uses: gradle/gradle enterprise build validation scripts/github/actions/gradle/experiment1@actions stable
         env:
-          GRADLE_ENTERPRISE_ACCESS_KEY: "${{ secrets.DV_SOLUTIONS_ACCESS_KEY }}"
+          GRADLE ENTERPRISE ACCESS KEY: "${{ secrets.DV SOLUTIONS ACCESS KEY }}"
         with:
-          gitRepo: ${{ env.GIT_REPO }}
+          gitRepo: ${{ env.GITREPO }}
           tasks: ${{ env.TASKS }}
-          gradleEnterpriseUrl: ${{ env.GRADLE_ENTERPRISE_URL }}
-        if: matrix.experimentId == 1
-      - name: Run experiment 2
-        uses: gradle/gradle-enterprise-build-validation-scripts/.github/actions/gradle/experiment-2@actions-stable
+          gradleEnterpriseUrl: ${{ env.GRADLE ENTERPRISE URL }}
+        if: matrix.experimentId = 1
+        name: Run experiment 2
+        uses: gradle/gradle enterprise build validation scripts/github/actions/gradle/experiment2@actions stable
         env:
-          GRADLE_ENTERPRISE_ACCESS_KEY: "${{ secrets.DV_SOLUTIONS_ACCESS_KEY }}"
+          GRADLE ENTERPRISE ACCESS KEY: "${{ secrets.DV SOLUTIONS ACCESS KEY }}"
         with:
-          gitRepo: ${{ env.GIT_REPO }}
+          gitRepo: ${{ env.GITREPO }}
           tasks: ${{ env.TASKS }}
-          gradleEnterpriseUrl: ${{ env.GRADLE_ENTERPRISE_URL }}
+          gradle Enterprise Url: ${{ env.GRADLE ENTERPRISE URL }}
           failIfNotFullyCacheable: true
-        if: matrix.experimentId == 2
-      - name: Run experiment 3
-        uses: gradle/gradle-enterprise-build-validation-scripts/.github/actions/gradle/experiment-3@actions-stable
+        if: matrix.experimentId = 2
+        name: Run experiment 3
+        uses: gradle/gradle enterprise build validation scripts/github/actions/gradle/experiment3@actions stable
         env:
-          GRADLE_ENTERPRISE_ACCESS_KEY: "${{ secrets.DV_SOLUTIONS_ACCESS_KEY }}"
+          GRADLE ENTERPRISE ACCESS KEY: "${{ secrets.DV SOLUTIONS ACCESS KEY }}"
         with:
-          gitRepo: ${{ env.GIT_REPO }}
+          gitRepo: ${{ env.GITREPO }}
           tasks: ${{ env.TASKS }}
-          gradleEnterpriseUrl: ${{ env.GRADLE_ENTERPRISE_URL }}
-          failIfNotFullyCacheable: true
-        if: matrix.experimentId == 3
+          gradle Enterprise Url: ${{ env.GRADLE ENTERPRISE URL }}
+          fail If Not Fully Cacheable: true
+        if: matrix.experimentId = 3
