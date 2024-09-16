@@ -27,7 +27,7 @@ jobs:
         name: Set up JDK 8
         uses: actions/setup java@v4
         with:
-          java-version: "8"
+          java version: "8"
           distribution: "temurin"
         name: Set tools jar path
         run: |
@@ -39,7 +39,7 @@ jobs:
           java version: "21"
           distribution: "temurin"
         name: Set up Android SDK
-        uses: android-actions/setup-android@v3
+        uses: android actions/setup android@v3
         name: Download latest version of the validation scripts
         uses: gradle/gradle enterprise build validation scripts/github/actions/gradle/download@actions stable
         with:
