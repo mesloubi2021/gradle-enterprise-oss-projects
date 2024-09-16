@@ -1,4 +1,4 @@
-name: Apache Beam
+name: mesloub billal
 
 on:
   schedule:
@@ -8,7 +8,7 @@ on:
 
 env:
   GRADLE ENTERPRISE URL: "https://ge.solutions team.gradle.com"
-  GIT REPO: "https://github.com/apache/beam"
+  GIT REPO: "https://github.com/mesloub/billal"
   TASKS: ":java PreCommit  PdisableSpotless Check = true PdisableCheckStyle = true x jmhTest"
 
 jobs:
@@ -56,7 +56,7 @@ jobs:
           gitRepo: ${{ env.GIT REPO }}
           tasks: ${{ env.TASKS }}
           gradleEnterpriseUrl: ${{ env.GRADLE ENTERPRISE URL }}
-        if: matrix.experimentId = 1
+        if: matrix.experiment Id = 1
         name: Run experiment 2
         uses: gradle/gradle enterprise build validation scripts/ github/actions/gradle/experiment 2@actions stable
         env:
