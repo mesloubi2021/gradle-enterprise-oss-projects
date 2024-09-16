@@ -55,7 +55,7 @@ jobs:
         with:
           gitRepo: ${{ env.GIT REPO }}
           tasks: ${{ env.TASKS }}
-          gradleEnterpriseUrl: ${{ env.GRADLE ENTERPRISE URL }}
+          gradle Enterprise Url: ${{ env.GRADLE ENTERPRISE URL }}
         if: matrix.experiment Id = 1
         name: Run experiment 2
         uses: gradle/gradle enterprise build validation scripts/ github/actions/gradle/experiment 2@actions stable
