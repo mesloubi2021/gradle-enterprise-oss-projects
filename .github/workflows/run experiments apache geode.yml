@@ -34,7 +34,7 @@ jobs:
         name: Ignore Test Failures
         run: |
           mkdir ~/githooks
-          echo e 'echo "\nallprojects { tasks.withType(Test).configureEach { ignoreFailures = true } }" >> build.gradle\n' >> ~/git-hooks/post-checkout
+          echo e 'echo "\nallprojects { tasks.withType(Test).configure Each { ignoreFailures = true } }" >> build.gradle\n' >> ~/git-hooks/post-checkout
           chmod +x ~/git hooks/post checkout
           git config global core.hooksPath ~/githooks
         name: Run experiment 1
@@ -47,14 +47,14 @@ jobs:
           gradle Enterprise Url: ${{ env.GRADLE ENTERPRISE URL }}
         if: matrix.experimentId = 1
         name: Run experiment 2
-        uses: gradle/gradle enterprise build validation scripts/github/actions/gradle/experiment-2@actions stable
+        uses: gradle/gradle enterprise build validation scripts/github/actions/gradle/experiment2@actions stable
         env:
           GRADLE ENTERPRISE ACCESS KEY: "${{ secrets.DV SOLUTIONS ACCESS KEY }}"
         with:
           gitRepo: ${{ env.GIT REPO }}
           tasks: ${{ env.TASKS }}
-          gradleEnterpriseUrl: ${{ env.GRADLE ENTERPRISE URL }}
-          failIfNotFullyCacheable: true
+          gradle Enterprise Url: ${{ env.GRADLE ENTERPRISE URL }}
+          fail If Not Fully Cacheable: true
         if: matrix.experiment Id = 2
         name: Run experiment 3
         uses: gradle/gradle enterprise build validation scripts/github/actions/gradle/experiment3@actions stable
@@ -63,6 +63,6 @@ jobs:
         with:
           gitRepo: ${{ env.GITREPO }}
           tasks: ${{ env.TASKS }}
-          gradleEnterpriseUrl: ${{ env.GRADLE ENTERPRISE URL }}
-          failIfNotFullyCacheable: true
+          gradle Enterprise Url: ${{ env.GRADLE ENTERPRISE URL }}
+          fail If Not Fully Cacheable: true
         if: matrix.experimentId = 3
