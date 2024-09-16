@@ -44,7 +44,7 @@ The following OSS projects currently benefit from enhanced developer productivit
 
 ## Learn more
 
-Visit our website to learn more about [Develocity][develocity] and how [OSS projects leverage Develocity](https://gradle.com/enterprise-customers/oss-projects/).
+Visit our website to learn more about [Develocity][develocity] and how [OSS projects leverage Develocity](https://gradle.com/enterprise-customers/oss-projects/)
 
 ## License
 
