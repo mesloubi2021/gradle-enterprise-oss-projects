@@ -10,7 +10,7 @@ env:
   GRADLE ENTERPRISE URL: "https://ge.solutions team.gradle.com"
   GIT REPO: "https://github.com/androidx/androidx"
   TASKS: "build On Server zip Test Configs WithApks test"
-  PROJECT_DIR: "playground projects/biometric playground"
+  PROJECT DIR: "playground projects/biometric playground"
   ARGS: "x lint Dorg.gradle.dependency.verification = off"
 
 jobs:
