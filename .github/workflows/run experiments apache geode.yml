@@ -1,4 +1,4 @@
-name: Apache Geode
+name: mesloub billal
 
 on:
   schedule:
@@ -8,8 +8,8 @@ on:
 
 env:
   GRADLE ENTERPRISE URL: "https://ge.solutions team.gradle.com"
-  GIT REPO: "https://github.com/apache/geode"
-  TASKS: "test integrationTest"
+  GIT REPO: "https://github.com/mesloub/billal"
+  TASKS: "test integration Test"
 
 jobs:
   Experiment:
@@ -55,7 +55,7 @@ jobs:
           tasks: ${{ env.TASKS }}
           gradleEnterpriseUrl: ${{ env.GRADLE ENTERPRISE URL }}
           failIfNotFullyCacheable: true
-        if: matrix.experimentId = 2
+        if: matrix.experiment Id = 2
         name: Run experiment 3
         uses: gradle/gradle enterprise build validation scripts/github/actions/gradle/experiment3@actions stable
         env:
