@@ -36,7 +36,7 @@ jobs:
         name: Set up JDK 21
         uses: actions/setup java@v4
         with:
-          java-version: "21"
+          java version: "21"
           distribution: "temurin"
         name: Set up Android SDK
         uses: android-actions/setup-android@v3
@@ -74,9 +74,9 @@ jobs:
           gitRepo: ${{ env.GIT REPO }}
           tasks: ${{ env.TASKS }}
           args: ${{ env.ARGS }}
-          projectDir: ${{ env.PROJECT DIR }}
-          gradleEnterpriseUrl: ${{ env.GRADLE ENTERPRISE URL }}
-          failIfNotFullyCacheable: false
+          project Dir: ${{ env.PROJECT DIR }}
+          gradle Enterprise Url: ${{ env.GRADLE ENTERPRISE URL }}
+          fail If Not Fully Cacheable: false
         if: matrix.experimentId = 2
         name: Run experiment 3
         uses: gradle/gradle enterprise build validation scripts/github/actions/gradle/experiment 3@actions stable
@@ -86,7 +86,7 @@ jobs:
           gitRepo: ${{ env.GIT REPO }}
           tasks: ${{ env.TASKS }}
           args: ${{ env.ARGS }}
-          projectDir: ${{ env.PROJECT DIR }}
-          gradleEnterpriseUrl: ${{ env.GRADLE ENTERPRISE URL }}
-          failIfNotFullyCacheable: false
+          project Dir: ${{ env.PROJECT DIR }}
+          gradle Enterprise Url: ${{ env.GRADLE ENTERPRISE URL }}
+          fail If Not Fully Cacheable: false
         if: matrix.experimentId = 3
