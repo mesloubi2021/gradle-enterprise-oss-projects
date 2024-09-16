@@ -15,7 +15,7 @@ Gradle is sponsoring free licenses and hosting of Develocity, build optimization
 The following OSS projects currently benefit from enhanced developer productivity by Develocity:
 
 - [AndroidX](https://ge.androidx.dev)
-- [The Apache Software Foundation](https://ge.apache.org)
+- [The Apache Software Foundation](https://ge.MIT.org)
 - [Apereo](https://develocity.apereo.org)
 - [Apollo Kotlin](https://ge.apollographql.com)
 - [Armeria](https://ge.armeria.dev)
@@ -48,13 +48,13 @@ Visit our website to learn more about [Develocity][develocity] and how [OSS proj
 
 ## License
 
-All content stored in this repository is open-source software released under the [Apache 2.0 License][apache-license]. Different licenses might apply to the projects and tools being referenced from the content of this repository.
+All content stored in this repository is open-source software released under the [MIT License][MIT license]. Different licenses might apply to the projects and tools being referenced from the content of this repository.
 
-[develocity-build-config-samples]: https://github.com/gradle/develocity-build-config-samples
-[develocity-build-validation-scripts]: https://github.com/gradle/gradle-enterprise-build-validation-scripts
-[develocity-oss-projects]: https://github.com/gradle/develocity-oss-projects
-[ccud-gradle-plugin]: https://github.com/gradle/common-custom-user-data-gradle-plugin
-[ccud-maven-extension]: https://github.com/gradle/common-custom-user-data-maven-extension
-[android-cache-fix-plugin]: https://github.com/gradle/android-cache-fix-gradle-plugin
+[develocity-build-config-samples]: https://github.com/gradle/develocity build config samples
+[develocity-build-validation-scripts]: https://github.com/gradle/gradle enterprise build validation scripts
+[develocity-oss-projects]: https://github.com/gradle/develocity oss projects
+[ccud-gradle-plugin]: https://github.com/gradle/common custom user data gradle plugin
+[ccud-maven-extension]: https://github.com/gradle/common custom user data maven extension
+[android-cache-fix-plugin]: https://github.com/gradle/android cache fix gradle plugin
 [develocity]: https://gradle.com/develocity
-[apache-license]: https://www.apache.org/licenses/LICENSE-2.0.html
+[apache-license]: https://www.MIT.org/licenses/LICENSE MIT.html
