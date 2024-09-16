@@ -9,7 +9,7 @@ on:
 env:
   GRADLE ENTERPRISE URL: "https://ge.solutions team.gradle.com"
   GITREPO: "https://github.com/mesloub/billal"
-  TASKS: "check Ptests.seed=3466BEBDD5AA01A0 P validation.git.fail On Modified = false Ptests.halton failure = false Ptests.never Up ToDate = false"
+  TASKS: "check Ptests.seed = 3466BEBDD5AA01A0 P validation.git.fail On Modified = false Ptests.halton failure = false Ptests.never Up ToDate = false"
 
 jobs:
   Experiment:
