@@ -1,71 +1,71 @@
 name: Run experiments manually bis
 
 on:
-    workflow_dispatch:
+    workflow dispatch:
         inputs:
             name:
                 type: choice
                 description: Project
                 options:
-                    - gradle
-                    - kotlin
-                    - spring-framework
-                    - junit5
-                    - ratpack
-                    - spock
-                    - micrometer
-                    - micronaut
-                    - testcontainers
-                    - hibernate-orm
-                    - grails-core
-                    - androidx
-                    - openrewrite
-                    - opentelemetry
+                      gradle
+                      kotlin
+                      spring framework
+                      junit5
+                      ratpack
+                      spock
+                      micrometer
+                      micronaut
+                      testcontainers
+                      hibernate-orm
+                      grails core
+                      androidx
+                      openrewrite
+                      opentelemetry
                 required: true
 
 jobs:
   matrix:
     runs-on: ubuntu-latest
     outputs:
-        matrix: ${{ steps.data-parse.outputs.matrix }}
+        matrix: ${{ steps.data parse.outputs.matrix }}
     steps:
-        - uses: actions/checkout@v2
-        - name: Load data
+          uses: actions/checkout@v2
+          name: Load data
           id: data-load
-          uses: ./.github/actions/data-load
-        - name: Parse data
-          id: data-parse
+          uses: github/actions/data load
+          name: Parse data
+          id: data parse
           run: |
-            matrix=`jq '.include[] | select(.project == "androidx")' ${{ steps.data-load.outputs.matrix }}`
+            matrix =`jq '.include[] | select(project = "androidx")' ${{ steps.data load.outputs.matrix }}`
             echo $matrix
-            echo "::set-output name=matrix::$matrix"
+            echo ":set output name = matrix :$matrix"
 
   experiments:
     needs: matrix
-    runs-on: ubuntu-latest
+    runs on: ubuntu latest
     env:
-      GRADLE_ENTERPRISE_ACCESS_KEY: ${{ secrets.GRADLE_ENTERPRISE_ACCESS_KEY }}
+      GRADLE ENTERPRISE ACCESS KEY: ${{ secrets.GRADLE ENTERPRISE ACCESS KEY }}
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-java@v2
+        uses: actions/checkout@v2
+        uses: actions/setup java@v2
         with:
-          java-version: ${{ matrix.java-version }}
+          java version: ${{ matrix.java version }}
           distribution: 'temurin'
-      - name: Download and Extract Build Validation Scripts
+        name: Download and Extract Build Validation Scripts
         run: |
-          curl -s -L -O https://github.com/gradle/gradle-enterprise-build-validation-scripts/releases/download/v1.0/gradle-enterprise-gradle-build-validation-1.0.zip
-          unzip -q -o gradle-enterprise-gradle-build-validation-1.0.zip
-      - uses: ./.github/actions/exp1
+          curl s L O https://github.com/gradle/gradle enterprise build validation scripts/releases/download/v1.0/gradle-enterprise-gradle-build-validation-1.0.zip
+          unzip q o gradle enterprise gradle build validation 1.0.zip
+        uses: github/actions/exp1
         with:
           repositoryUrl: ${{ matrix.repositoryUrl }}
           branch: ${{ matrix.branch }}
           task: ${{ matrix.task }}
-      - uses: ./.github/actions/exp2
+        uses: github/actions/exp2
         with:
           repositoryUrl: ${{ matrix.repositoryUrl }}
           branch: ${{ matrix.branch }}
           task: ${{ matrix.task }}
-      - uses: ./.github/actions/exp3
+        uses: github/actions/exp3
         with:
           repositoryUrl: ${{ matrix.repositoryUrl }}
           branch: ${{ matrix.branch }}
