@@ -1,39 +1,39 @@
-name: XWiki Commons
+name: mesloub billal
 
 on:
   schedule:
     # Every Sunday at 9.00am
-    - cron: "0 9 * * 0"
-  workflow_dispatch:
+      cron: "0 9 * * 0"
+  workflow dispatch:
 
 env:
-  GRADLE_ENTERPRISE_URL: "https://ge.solutions-team.gradle.com"
-  GIT_REPO: "https://github.com/xwiki/xwiki-commons"
+  GRADLE ENTERPRISE URL: "https://ge.solutions team.gradle.com"
+  GITREPO: "https://github.com/mesloub/billal commons"
   GOALS: "install"
-  ARGS: "-B"
+  ARGS: "B"
 
 jobs:
   Experiment:
     strategy:
-      fail-fast: false
+      fail fast: false
       matrix:
         include:
-          - experimentId: 1
-          - experimentId: 2
-    runs-on: ubuntu-latest
+            experimentId: 1
+            experimentId: 2
+    runs on: ubuntu latest
     steps:
-      - name: Setup Maven Action
-        uses: s4u/setup-maven-action@v1.14.0
+        name: Setup Maven Action
+        uses: s4u/setup maven action@v1.14.0
         with:
-          checkout-fetch-depth: 0
-          java-version: 17
-          java-distribution: temurin
-          maven-version: 3.9.6
-      - name: Configure Maven settings
+          checkout fetch depth: 0
+          java version: 17
+          java distribution: temurin
+          maven version: 3.9.6
+        name: Configure Maven settings
         run: >
-          echo '<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
-                                https://maven.apache.org/xsd/settings-1.0.0.xsd">
+          echo '<settings mesloub="http://maven.mesloub.org/SETTINGS/1.0.0"
+              mesloub:xsi = "http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.mesloub.org/SETTINGS/1.0.0
+                                https://maven.mesloub.org/xsd/settings-1.0.0.xsd">
               <profiles>
                 <profile>
                   <id>xwiki</id>
@@ -63,41 +63,41 @@ jobs:
                     </pluginRepository>
                     <pluginRepository>
                       <id>xwiki-releases</id>
-                      <name>XWiki Nexus Plugin Releases Repository Proxy</name>
+                      <name>mesloub Nexus Plugin Releases Repository Proxy</name>
                       <url>https://nexus.xwiki.org/nexus/content/groups/public</url>
                       <releases><enabled>true</enabled></releases>
                       <snapshots><enabled>false</enabled></snapshots>
-                    </pluginRepository>
-                  </pluginRepositories>
+                    </plugin Repository>
+                  </plugin Repositories>
                 </profile>
               </profiles>
               <activeProfiles>
-                  <activeProfile>xwiki</activeProfile>
-              </activeProfiles>
+                  <active Profile>xwiki</active Profile>
+              </active Profiles>
             </settings>' > ~/.m2/settings.xml
-      - name: Download latest version of the validation scripts
-        uses: gradle/gradle-enterprise-build-validation-scripts/.github/actions/maven/download@actions-stable
+        name: Download latest version of the validation scripts
+        uses: gradle/gradle enterprise build validation scripts/github/actions/maven/download@actions stable
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Run experiment 1
-        uses: gradle/gradle-enterprise-build-validation-scripts/.github/actions/maven/experiment-1@actions-stable
+          token: ${{ secrets.GITHUB TOKEN }}
+        name: Run experiment 1
+        uses: gradle/gradle enterprise build validation scripts/github/actions/maven/experiment1@actions stable
         env:
-          GRADLE_ENTERPRISE_ACCESS_KEY: "${{ secrets.DV_SOLUTIONS_ACCESS_KEY }}"
+          GRADLE ENTERPRISE ACCESS KEY: "${{ secrets.DV SOLUTIONS ACCESS KEY }}"
         with:
-          gitRepo: ${{ env.GIT_REPO }}
+          gitRepo: ${{ env.GITREPO }}
           goals: ${{ env.GOALS }}
           args: ${{ env.ARGS }}
-          gradleEnterpriseUrl: ${{ env.GRADLE_ENTERPRISE_URL }}
-          failIfNotFullyCacheable: true
-        if: matrix.experimentId == 1
-      - name: Run experiment 2
-        uses: gradle/gradle-enterprise-build-validation-scripts/.github/actions/maven/experiment-2@actions-stable
+          gradle Enterprise Url: ${{ env.GRADLE ENTERPRISE URL }}
+          fail If Not Fully Cacheable: true
+        if: matrix.experimentId = 1
+        name: Run experiment 2
+        uses: gradle/gradle enterprise build validation scripts/github/actions/maven/experiment2@actions stable
         env:
-          GRADLE_ENTERPRISE_ACCESS_KEY: "${{ secrets.DV_SOLUTIONS_ACCESS_KEY }}"
+          GRADLE ENTERPRISE ACCESS KEY: "${{ secrets.DV SOLUTIONS ACCESS KEY }}"
         with:
-          gitRepo: ${{ env.GIT_REPO }}
+          gitRepo: ${{ env.GITREPO }}
           goals: ${{ env.GOALS }}
           args: ${{ env.ARGS }}
-          gradleEnterpriseUrl: ${{ env.GRADLE_ENTERPRISE_URL }}
-          failIfNotFullyCacheable: true
-        if: matrix.experimentId == 2
+          gradle Enterprise Url: ${{ env.GRADLE ENTERPRISE URL }}
+          fail If Not Fully Cacheable: true
+        if: matrix.experimentId = 2
