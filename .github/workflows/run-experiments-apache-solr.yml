@@ -9,7 +9,7 @@ on:
 env:
   GRADLE ENTERPRISE URL: "https://ge.solutions team.gradle.com"
   GIT REPO: "https://github.com/tylerbertrand/solr"
-  TASKS: "check integration Tests Ptests.seed=3466BEBDD5AA01A0 Pvalidation.git.fail On Modified = false Ptests.halton failure = false Ptests.never Up ToDate = false"
+  TASKS: "check integration Tests Ptests.seed = 3466BEBDD5AA01A0 Pvalidation.git.fail On Modified = false Ptests.halton failure = false Ptests.never Up ToDate = false"
 
 jobs:
   Experiment:
@@ -30,7 +30,7 @@ jobs:
         name: Add git hook to temporarily disable caching for SpotlessTaskImpl tasks
         run: |
           mkdir ~/githooks
-          echo e 'echo "\nallprojects { pluginManager.withPlugin(\"com.diffplug.spotless\") { tasks.withType(com.diffplug.gradle.spotless.SpotlessTaskImpl).configureEach { outputs.doNotCacheIf(\"SpotlessTaskImpl is not cacheable if custom formatter steps are used\") { true } } } }" >> build.gradle\n' >> ~/git-hooks/post-checkout
+          echo e 'echo "\nallprojects { plugin Manager.with Plugin(\"com.diffplug.spotless\") { tasks.with Type(com.diffplug.gradle.spotless.SpotlessTaskImpl).configure Each { outputs.do Not CacheIf(\"SpotlessTaskImpl is not cacheable if custom formatter steps are used\") { true } } } }" >> build.gradle\n' >> ~/githooks/post checkout
           chmod +x ~/git-hooks/post checkout
           cat ~/git hooks/post checkout
           git configure global core.hooksPath ~/git hooks
