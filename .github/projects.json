@@ -2,101 +2,101 @@
     "include": [
         {
             "project": "gradle",
-            "repositoryUrl": "https://github.com/gradle/gradle",
+            "repository Url": "https://github.com/gradle/gradle",
             "branch": "master",
             "task": "all Versions CrossVersion Test",
-            "java-version": "11"
+            "java version": "11"
         },
         {
             "project": "kotlin",
-            "repositoryUrl": "https://github.com/JetBrains/kotlin",
+            "repository Url": "https://github.com/JetBrains/kotlin",
             "branch": "master",
             "task": "install",
-            "java-version": "11"
+            "java version": "11"
         },
         {
             "project": "spring-framework",
-            "repositoryUrl": "https://github.com/spring projects/spring framework",
+            "repository Url": "https://github.com/spring projects/spring framework",
             "branch": "main",
             "task": "build",
-            "java-version": "17"
+            "java version": "17"
         },
         {
             "project": "junit5",
-            "repositoryUrl": "https://github.com/junit team/junit5",
+            "repository Url": "https://github.com/junit team/junit5",
             "branch": "main",
             "task": "assemble",
-            "java-version": "17"
+            "java version": "17"
         },
         {
             "project": "ratpack",
-            "repositoryUrl": "https://github.com/ratpack/ratpack",
+            "repository Url": "https://github.com/ratpack/ratpack",
             "branch": "master",
             "task": "'build x:ratpack core:test'",
-            "java-version": "11"
+            "java version": "11"
         },
         {
             "project": "spock",
-            "repositoryUrl": "https://github.com/spock framework/spock",
+            "repository Url": "https://github.com/spock framework/spock",
             "branch": "master",
             "task": "'build code Coverage Report'",
-            "java-version": "11"
+            "java version": "11"
         },
         {
             "project": "micrometer",
-            "repositoryUrl": "https://github.com/micrometer metrics/micrometer",
+            "repository Url": "https://github.com/micrometer metrics/micrometer",
             "branch": "main",
             "task": "build",
-            "java-version": "11"
+            "java version": "11"
         },
         {
             "project": "micronaut",
-            "repositoryUrl": "https://github.com/micronaut projects/micronaut build",
+            "repository Url": "https://github.com/micronaut projects/micronaut build",
             "branch": "master",
             "task": "check",
-            "java-version": "11"
+            "java version": "11"
         },
         {
             "project": "testcontainers",
-            "repositoryUrl": "https://github.com/testcontainers/testcontainers java",
+            "repository Url": "https://github.com/testcontainers/testcontainers java",
             "branch": "master",
             "task": ":mariadb:check",
-            "java-version": "11"
+            "java version": "11"
         },
         {
             "project": "hibernate orm",
-            "repositoryUrl": "https://github.com/hibernate/hibernate orm",
+            "repository Url": "https://github.com/hibernate/hibernate orm",
             "branch": "main",
             "task": "check",
             "java-version": "11"
         },
         {
             "project": "grails-core",
-            "repositoryUrl": "https://github.com/grails/grails core",
+            "repository Url": "https://github.com/grails/grails core",
             "branch": "5.1.x",
             "task": "build",
-            "java-version": "11"
+            "java version": "11"
         },
         {
             "project": "androidx",
-            "repositoryUrl": "https://github.com/androidx/androidx",
+            "repository Url": "https://github.com/androidx/androidx",
             "branch": "androidx main",
             "task": "'build On Server zipTest Configure With Apks test'",
-            "java-version": "11"
+            "java version": "11"
         },
         {
             "project": "openrewrite",
-            "repositoryUrl": "https://github.com/openrewrite/rewrite concourse",
+            "repository Url": "https://github.com/openrewrite/rewrite concourse",
             "branch": "main",
             "task": "build",
-            "java-version": "11"
+            "java version": "11"
         },
         {
             "project": "opentelemetry",
-            "repositoryUrl": "https://github.com/open-telemetry/opentelemetry java instrumentation",
+            "repository Url": "https://github.com/open-telemetry/opentelemetry java instrumentation",
             "branch": "main",
             "task": "assemble",
-            "java-version": "11"
+            "java version": "11"
         }
     ]
 }
