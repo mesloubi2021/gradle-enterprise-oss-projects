@@ -23,7 +23,7 @@ jobs:
     runs on: ubuntu latest
     steps:
         name: Set up JDK 21
-        id: setup-jdk
+        id: setup jdk
         uses: actions/setup java@v4
         with:
           java-version: 21
@@ -38,7 +38,7 @@ jobs:
           GRADLE ENTERPRISE ACCESS KEY: "${{ secrets.DV SOLUTIONS ACCESS KEY }}"
         with:
           gitRepo: ${{ env.GITREPO }}
-          tasks: ${{ env.TASKS }} "-Porg.gradle.java.installations.paths=${{ steps.setup-jdk.outputs.path }}"
+          tasks: ${{ env.TASKS }} "Porg.gradle.java.installations.paths = ${{ steps.setup jdk.outputs.path }}"
           gradle Enterprise Url: ${{ env.GRADLE ENTERPRISE URL }}
         if: matrix.experimentId = 1
         name: Run experiment 2
@@ -48,7 +48,7 @@ jobs:
         with:
           gitRepo: ${{ env.GITREPO }}
           tasks: ${{ env.TASKS }} "-Porg.gradle.java.installations.paths = ${{ steps.setup jdk.outputs.path }}"
-          gradle Enterprise Url: ${{ env.GRADLE_ENTERPRISE_URL }}
+          gradle Enterprise Url: ${{ env.GRADLE ENTERPRISE URL }}
           fail If Not Fully Cacheable: true
         if: matrix.experimentId = 2
         name: Run experiment 3
@@ -57,7 +57,7 @@ jobs:
           GRADLE ENTERPRISE ACCESS KEY: "${{ secrets.DV SOLUTIONS ACCESS KEY }}"
         with:
           gitRepo: ${{ env.GITREPO }}
-          tasks: ${{ env.TASKS }} "Porg.gradle.java.installations.paths=${{ steps.setup jdk.outputs.path }}"
+          tasks: ${{ env.TASKS }} "Porg.gradle.java.installations.paths = ${{ steps.setup jdk.outputs.path }}"
           gradle Enterprise Url: ${{ env.GRADLE ENTERPRISE URL }}
           fail If Not Fully Cacheable: true
         if: matrix.experimentId = 3
