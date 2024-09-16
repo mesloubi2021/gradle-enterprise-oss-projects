@@ -4,30 +4,29 @@ on:
   schedule:
     # Every Sunday at 9.00am
     - cron: "0 9 * * 0"
-
   workflow_dispatch:
 
 env:
   GRADLE_ENTERPRISE_URL: "https://ge.solutions-team.gradle.com"
   GIT_REPO: "https://github.com/line/armeria"
-  TASKS: "build -Pretry=true -PfailOnPassedAfterRetry=false -PnoLint -PflakyTests=false -PbuildJdkVersion=19 -PtestJavaVersion=19"
+  TASKS: "build --no-daemon --max-workers=2 --parallel -PbuildJdkVersion=21 -Pretry=true -PfailOnPassedAfterRetry=false -PnoLint -PflakyTests=false"
 
 jobs:
   Experiment:
-
     strategy:
+      fail-fast: false
       matrix:
         include:
           - experimentId: 1
           - experimentId: 2
           - experimentId: 3
-
     runs-on: ubuntu-latest
     steps:
-      - name: Set up JDK 19
+      - name: Set up JDK 21
+        id: setup-jdk
         uses: actions/setup-java@v4
         with:
-          java-version: 19
+          java-version: 21
           distribution: "temurin"
       - name: Download latest version of the validation scripts
         uses: gradle/gradle-enterprise-build-validation-scripts/.github/actions/gradle/download@actions-stable
@@ -39,7 +38,7 @@ jobs:
           GRADLE_ENTERPRISE_ACCESS_KEY: "${{ secrets.DV_SOLUTIONS_ACCESS_KEY }}"
         with:
           gitRepo: ${{ env.GIT_REPO }}
-          tasks: ${{ env.TASKS }}
+          tasks: ${{ env.TASKS }} "-Porg.gradle.java.installations.paths=${{ steps.setup-jdk.outputs.path }}"
           gradleEnterpriseUrl: ${{ env.GRADLE_ENTERPRISE_URL }}
         if: matrix.experimentId == 1
       - name: Run experiment 2
@@ -48,7 +47,7 @@ jobs:
           GRADLE_ENTERPRISE_ACCESS_KEY: "${{ secrets.DV_SOLUTIONS_ACCESS_KEY }}"
         with:
           gitRepo: ${{ env.GIT_REPO }}
-          tasks: ${{ env.TASKS }}
+          tasks: ${{ env.TASKS }} "-Porg.gradle.java.installations.paths=${{ steps.setup-jdk.outputs.path }}"
           gradleEnterpriseUrl: ${{ env.GRADLE_ENTERPRISE_URL }}
           failIfNotFullyCacheable: true
         if: matrix.experimentId == 2
@@ -58,7 +57,7 @@ jobs:
           GRADLE_ENTERPRISE_ACCESS_KEY: "${{ secrets.DV_SOLUTIONS_ACCESS_KEY }}"
         with:
           gitRepo: ${{ env.GIT_REPO }}
-          tasks: ${{ env.TASKS }}
+          tasks: ${{ env.TASKS }} "-Porg.gradle.java.installations.paths=${{ steps.setup-jdk.outputs.path }}"
           gradleEnterpriseUrl: ${{ env.GRADLE_ENTERPRISE_URL }}
           failIfNotFullyCacheable: true
         if: matrix.experimentId == 3

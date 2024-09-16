@@ -1,4 +1,4 @@
-name: Apache Groovy
+name: OpenRewrite Concourse
 
 on:
   schedule:
@@ -8,8 +8,8 @@ on:
 
 env:
   GRADLE_ENTERPRISE_URL: "https://ge.solutions-team.gradle.com"
-  GIT_REPO: "https://github.com/apache/groovy"
-  TASKS: "test"
+  GIT_REPO: "https://github.com/openrewrite/rewrite-concourse"
+  TASKS: "build"
 
 jobs:
   Experiment:
@@ -22,10 +22,10 @@ jobs:
           - experimentId: 3
     runs-on: ubuntu-latest
     steps:
-      - name: Set up JDK 17
+      - name: Set up JDK 11
         uses: actions/setup-java@v4
         with:
-          java-version: 17
+          java-version: 11
           distribution: "temurin"
       - name: Download latest version of the validation scripts
         uses: gradle/gradle-enterprise-build-validation-scripts/.github/actions/gradle/download@actions-stable

@@ -4,7 +4,6 @@
 > - _[Develocity Open Source Projects][develocity-oss-projects] (this repository)_
 > - _[Common Custom User Data Maven Extension][ccud-maven-extension]_
 > - _[Common Custom User Data Gradle Plugin][ccud-gradle-plugin]_
-> - _[Common Custom User Data sbt Plugin][ccud-sbt-plugin]_ 
 > - _[Android Cache Fix Gradle Plugin][android-cache-fix-plugin]_
 
 # Develocity OSS Projects
@@ -16,11 +15,12 @@ Gradle is sponsoring free licenses and hosting of Develocity, build optimization
 The following OSS projects currently benefit from enhanced developer productivity by Develocity:
 
 - [AndroidX](https://ge.androidx.dev)
-- [Apereo CAS](https://develocity.apereo.org)
-- [Apollo](https://ge.apollographql.com)
+- [The Apache Software Foundation](https://ge.apache.org)
+- [Apereo](https://develocity.apereo.org)
+- [Apollo Kotlin](https://ge.apollographql.com)
 - [Armeria](https://ge.armeria.dev)
 - [Caffeine](https://caffeine.gradle-enterprise.cloud)
-- [Calcite](https://ge.apache.org)
+- [Commonhaus Foundation](https://develocity.commonhaus.dev)
 - [Detekt](https://ge.detekt.dev)
 - [Gradle](https://ge.gradle.org)
 - [Grails](https://ge.grails.org)
@@ -28,14 +28,15 @@ The following OSS projects currently benefit from enhanced developer productivit
 - [JHipster](https://ge.jhipster.tech)
 - [JUnit](https://ge.junit.org)
 - [Kotlin](https://ge.jetbrains.com)
+- [MicroStream](https://ge.microstream.one)
 - [Micrometer](https://ge.micrometer.io)
 - [Micronaut](https://ge.micronaut.io)
-- [Microstream](https://ge.microstream.one)
 - [Nokee](https://ge.nokee.dev)
-- [OpenAPI](https://ge.openapi-generator.tech)
+- [OpenAPI Generator](https://ge.openapi-generator.tech)
 - [OpenRewrite](https://ge.openrewrite.org)
 - [Quarkus](https://ge.quarkus.io)
 - [Ratpack](https://ge.ratpack.io)
+- [Scala3](https://develocity.scala-lang.org)
 - [Spock](https://ge.spockframework.org)
 - [Spring](https://ge.spring.io)
 - [Testcontainers](https://ge.testcontainers.org)
@@ -54,7 +55,6 @@ All content stored in this repository is open-source software released under the
 [develocity-oss-projects]: https://github.com/gradle/develocity-oss-projects
 [ccud-gradle-plugin]: https://github.com/gradle/common-custom-user-data-gradle-plugin
 [ccud-maven-extension]: https://github.com/gradle/common-custom-user-data-maven-extension
-[ccud-sbt-plugin]: https://github.com/gradle/common-custom-user-data-sbt-plugin
 [android-cache-fix-plugin]: https://github.com/gradle/android-cache-fix-gradle-plugin
 [develocity]: https://gradle.com/develocity
 [apache-license]: https://www.apache.org/licenses/LICENSE-2.0.html
