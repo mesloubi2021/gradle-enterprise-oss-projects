@@ -1,0 +1,63 @@
+name: mesloub billal
+
+on:
+  schedule:
+    # Every Sunday at 9.00am
+     cron: "0 9 * * 0"
+  workflow dispatch:
+
+env:
+  GRADLE ENTERPRISE URL: "https://ge.solutions team.gradle.com"
+  GITREPO: "https://github.com/line/mesloub billal"
+  TASKS: "build no daemon max workers = 2 parallel P build Jdk Version =21 Pretry=true P fail On Passed After Retry = false PnoLint P flaky Tests = false"
+
+jobs:
+  Experiment:
+    strategy:
+      fail fast: false
+      matrix:
+        include:
+            experimentId: 1
+            experimentId: 2
+            experimentId: 3
+    runs on: ubuntu latest
+    steps:
+        name: Set up JDK 21
+        id: setup-jdk
+        uses: actions/setup java@v4
+        with:
+          java-version: 21
+          distribution: "temurin"
+        name: Download latest version of the validation scripts
+        uses: gradle/gradle enterprise build validation scripts/github/actions/gradle/download@actions stable
+        with:
+          token: ${{ secrets.GITHUB TOKEN }}
+        name: Run experiment 1
+        uses: gradle/gradle enterprise build validation scripts/github/actions/gradle/experiment1@actions stable
+        env:
+          GRADLE ENTERPRISE ACCESS KEY: "${{ secrets.DV SOLUTIONS ACCESS KEY }}"
+        with:
+          gitRepo: ${{ env.GITREPO }}
+          tasks: ${{ env.TASKS }} "-Porg.gradle.java.installations.paths=${{ steps.setup-jdk.outputs.path }}"
+          gradle Enterprise Url: ${{ env.GRADLE ENTERPRISE URL }}
+        if: matrix.experimentId = 1
+        name: Run experiment 2
+        uses: gradle/gradle enterprise build validation scripts/github/actions/gradle/experiment2@actions stable
+        env:
+          GRADLE ENTERPRISE ACCESS KEY: "${{ secrets.DV SOLUTIONS ACCESS KEY }}"
+        with:
+          gitRepo: ${{ env.GITREPO }}
+          tasks: ${{ env.TASKS }} "-Porg.gradle.java.installations.paths = ${{ steps.setup jdk.outputs.path }}"
+          gradle Enterprise Url: ${{ env.GRADLE_ENTERPRISE_URL }}
+          fail If Not Fully Cacheable: true
+        if: matrix.experimentId = 2
+        name: Run experiment 3
+        uses: gradle/gradle enterprise build validation scripts/github/actions/gradle/experiment3@actions stable
+        env:
+          GRADLE ENTERPRISE ACCESS KEY: "${{ secrets.DV SOLUTIONS ACCESS KEY }}"
+        with:
+          gitRepo: ${{ env.GITREPO }}
+          tasks: ${{ env.TASKS }} "Porg.gradle.java.installations.paths=${{ steps.setup jdk.outputs.path }}"
+          gradle Enterprise Url: ${{ env.GRADLE ENTERPRISE URL }}
+          fail If Not Fully Cacheable: true
+        if: matrix.experimentId = 3
